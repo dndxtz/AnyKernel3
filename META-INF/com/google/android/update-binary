@@ -98,9 +98,9 @@ if [ -f version ]; then
   done < version;
   ui_print " ";
 fi;
-ui_print "- Checking ChipsImage...";
+ui_print "- Checking ChipsImage";
 ui_print "- Founded ChipsImage ";
-ui_print "- Chips Codename: Spicy ";
+ui_print "- Chips Codename: Baked ";
 unmount_all;
 if [ ! "$(is_mounted /system)" ]; then
   $bb mount -o ro -t auto /system;
@@ -132,7 +132,7 @@ elif [ ! "$(getprop ro.product.device 2>/dev/null)" -a ! "$(getprop ro.build.pro
 fi;
 
 if [ "$(file_getprop anykernel.sh do.devicecheck)" == 1 ]; then
-  ui_print "- Checking device...";
+  ui_print "- Checking device";
   device="$(getprop ro.product.device)";
   product="$(getprop ro.build.product)";
   for testname in $(file_getprop anykernel.sh 'device.name.*'); do
@@ -149,7 +149,7 @@ fi;
 
 supported_ver="$(file_getprop anykernel.sh supported.versions | $bb tr -d '[:space:]')";
 if [ "$supported_ver" ]; then
-  ui_print "- Checking Android Version...";
+  ui_print "- Checking Android Version";
   android_ver="$(file_getprop /system/build.prop ro.build.version.release)";
   if [ "$(echo $supported_ver | $bb grep -)" ]; then
     lo_ver=$(echo $supported_ver | $bb cut -d- -f1);
@@ -173,11 +173,11 @@ if [ "$supported_ver" ]; then
   fi;
 fi;
 
-ui_print "- Backuping Boot.img...";
+ui_print "- Backuping Boot.img";
 sleep 1
-ui_print "- Unpacking Boot.img...";
+ui_print "- Unpacking Boot.img";
 sleep 1
-ui_print "- Patching Boot.img...";
+ui_print "- Patching Boot.img";
 core=$($bb grep -oE 'ak.*core.sh' anykernel.sh);
 test -f tools/$core || $bb ln -s $home/tools/ak*-core.sh $home/tools/$core;
 PATH="$home/bin:$PATH" home=$home $bb ash anykernel.sh $2;
@@ -186,7 +186,7 @@ if [ $? != 0 ]; then
 fi;
 
 if [ "$(file_getprop anykernel.sh do.modules)" == 1 ]; then
-  ui_print " " "- Pushing modules...";
+  ui_print " " "- Pushing modules";
   $bb mount -o rw,remount -t auto /system;
   $bb mount -o rw,remount -t auto /vendor 2>/dev/null;
   cd $home/modules;
@@ -226,15 +226,15 @@ fi;
 test "$savedpath" && export LD_LIBRARY_PATH="$savedpath";
 test "$savedpre" && export LD_PRELOAD="$savedpre";
 
-ui_print "- Repacking Boot.img...";
+ui_print "- Repacking Boot.img";
 sleep 1
-ui_print "- Flashing Boot.img...";
+ui_print "- Flashing Boot.img";
 sleep 2
-ui_print "- Unmount partitions...";
+ui_print "- Unmount partitions";
 sleep 1
 
 unmount_all;
 
 ui_print "****************************************";
-ui_print "* ChipsKernel-Spicy Installed!!!";
+ui_print "* ChipsKernel-Baked Installed!!!";
 ui_print "****************************************";

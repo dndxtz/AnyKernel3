@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ChipsKernel-Spicy
+kernel.string=ChipsKernel-Baked
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
@@ -12,7 +12,7 @@ do.cleanuponabort=0
 device.name1=X00T
 device.name2=X00TD
 device.name3=ASUS_X00TD
-supported.versions=9
+supported.versions=8.1 - 9.0
 '; } # end properties
 
 # shell variables

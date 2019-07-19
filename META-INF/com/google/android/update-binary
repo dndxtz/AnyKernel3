@@ -111,7 +111,7 @@ if [ -f version ]; then
 fi;
 ui_print "- Checking ChipsImage";
 ui_print "- Founded ChipsImage ";
-ui_print "- Chips Codename: Baked ";
+ui_print "- Chips Codename: Fries ";
 unmount_all;
 if ! is_mounted /system; then
   $bb mount -o ro -t auto /system;
@@ -247,5 +247,5 @@ sleep 1
 unmount_all;
 
 ui_print "****************************************";
-ui_print "* ChipsKernel-Baked Installed!!!";
+ui_print "* ChipsKernel-Fries Installed!!!";
 ui_print "****************************************";

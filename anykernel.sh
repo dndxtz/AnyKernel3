@@ -13,6 +13,7 @@ device.name1=X00T
 device.name2=X00TD
 device.name3=ASUS_X00TD
 supported.versions=8.1 - 9.0
+supported.patchlevels=2019-04 - 2019-07
 '; } # end properties
 
 # shell variables

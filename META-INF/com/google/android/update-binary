@@ -75,7 +75,8 @@ restore_env() {
   test "$savedpre" && export LD_PRELOAD="$savedpre";
   umount_all;
   ($bb mv -f /system_link /system;
-  $bb mv -f /system_root_link /system_root) 2>/dev/null;
+  $bb mv -f /system_root_link /system_root;
+  $bb umount -l /dev/random) 2>/dev/null;
 }
 abort() {
   ui_print "$@";
@@ -133,6 +134,7 @@ fi;
 ui_print "- Checking ChipsImage";
 ui_print "- Founded ChipsImage ";
 ui_print "- Chips Codename: Fries ";
+$BOOTMODE || $bb mount -o bind /dev/urandom /dev/random;
 umount_all;
 setup_mountpoint $ANDROID_ROOT;
 if ! is_mounted $ANDROID_ROOT; then

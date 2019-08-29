@@ -81,10 +81,10 @@ restore_env() {
 abort() {
   ui_print "$@";
   debugging;
+  restore_env;
   if [ ! -f anykernel.sh -o "$(file_getprop anykernel.sh do.cleanuponabort 2>/dev/null)" == 1 ]; then
     cleanup;
   fi;
-  restore_env;
   exit 1;
 }
 
@@ -289,6 +289,7 @@ if [ "$(file_getprop anykernel.sh do.modules)" == 1 ]; then
 fi;
 
 debugging;
+restore_env;
 
 if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
@@ -300,8 +301,6 @@ ui_print "- Flashing Boot.img";
 sleep 2
 ui_print "- Unmount partitions";
 sleep 1
-
-restore_env;
 
 ui_print "****************************************";
 ui_print "* ChipsKernel-Fries Installed!!!";

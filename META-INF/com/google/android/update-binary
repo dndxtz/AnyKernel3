@@ -122,9 +122,9 @@ if [ -f banner ]; then
 fi;
 
 ui_print "****************************************";
-ui_print "* $(file_getprop anykernel.sh kernel.string)";
-ui_print "* For Asus Zenfone Max Pro M1 ";
-ui_print "* By Ahmad Thoriq Najahi ";
+ui_print "* $(file_getprop anykernel.sh kernel.string)                    *";
+ui_print "* For Asus Zenfone Max Pro M1          *";
+ui_print "* By Ahmad Thoriq Najahi               *";
 ui_print "****************************************";
 if [ -f version ]; then
   ui_print " ";
@@ -244,11 +244,8 @@ if [ "$supported_lvl" ]; then
   fi;
 fi;
 
-ui_print "- Backuping Boot.img";
 sleep 1
-ui_print "- Unpacking Boot.img";
-sleep 1
-ui_print "- Patching Boot.img";
+ui_print "- Flashing Chips Image...";
 core=$($bb grep -oE 'ak.*core.sh' anykernel.sh);
 test -f tools/$core || $bb ln -s $home/tools/ak*-core.sh $home/tools/$core;
 PATH="$home/bin:$PATH" home=$home $bb ash anykernel.sh $2;
@@ -295,13 +292,6 @@ if [ "$(file_getprop anykernel.sh do.cleanup)" == 1 ]; then
   cleanup;
 fi;
 
-ui_print "- Repacking Boot.img";
-sleep 1
-ui_print "- Flashing Boot.img";
-sleep 2
-ui_print "- Unmount partitions";
-sleep 1
-
 ui_print "****************************************";
-ui_print "* ChipsKernel-Fries Installed!!!";
+ui_print "* ChipsKernel-Fries Installed!!!       *";
 ui_print "****************************************";

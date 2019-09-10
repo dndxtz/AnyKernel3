@@ -12,7 +12,7 @@ do.cleanuponabort=0
 device.name1=X00T
 device.name2=X00TD
 device.name3=ASUS_X00TD
-supported.versions=8.1 - 10.0
+supported.versions=8.1 - 10
 supported.patchlevels=2019-04 - 2019-09
 '; } # end properties
 

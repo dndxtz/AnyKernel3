@@ -25,8 +25,18 @@ ramdisk_compression=auto;
 # import patching functions/variables - see for reference
 . tools/ak3-core.sh;
 
+## skip choices
+decompressed_image=/tmp/anykernel/kernel/Image
+compressed_image=$decompressed_image.gz
+android_version="$(file_getprop /system/build.prop "ro.build.version.release")";
+if [ "$android_version" != "10" ]; then
+    ui_print "- Detected android pie, skipping menu"
+    dump_boot;
+    cat $compressed_image /tmp/anykernel/dtbs/*.dtb > /tmp/anykernel/Image.gz-dtb;
+    write_boot;
+else
+
 # Key select start
-ui_print " "
 ui_print "- Touch the screen first or press any volume key"
 
 INSTALLER=$(pwd)
@@ -123,4 +133,6 @@ if [ -f $compressed_image ]; then
 fi;
 
 write_boot;
+
+fi;
 ## end install

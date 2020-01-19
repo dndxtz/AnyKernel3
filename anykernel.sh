@@ -7,7 +7,7 @@ properties() { '
 kernel.string=ChipsKernel by najahiiii @ GitHub
 do.devicecheck=1
 do.modules=0
-do.systemless=1
+do.systemless=0
 do.cleanup=1
 do.cleanuponabort=0
 device.name1=ginkgo
@@ -15,7 +15,7 @@ device.name2=
 device.name3=
 device.name4=
 device.name5=
-supported.versions=
+supported.versions=10
 supported.patchlevels=
 '; } # end properties
 

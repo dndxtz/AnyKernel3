@@ -7,7 +7,6 @@ properties() { '
 kernel.string=ChipsKernel by najahiiii @ GitHub
 do.devicecheck=1
 do.modules=1
-do.modules=0
 do.systemless=0
 do.cleanup=1
 do.cleanuponabort=0

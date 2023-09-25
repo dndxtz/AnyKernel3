@@ -4,14 +4,14 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=ChipsKernel by najahiiii @ GitHub
+kernel.string=Fate by dndxtz @ GitHub
 do.devicecheck=1
-do.modules=0
+do.modules=1
 do.systemless=0
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=ginkgo
-device.name2=willow
+device.name1=rolex
+device.name2=
 device.name3=
 device.name4=
 device.name5=

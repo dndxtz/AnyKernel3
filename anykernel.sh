@@ -6,7 +6,7 @@
 properties() { '
 kernel.string=Fate by dndxtz @ GitHub
 do.devicecheck=1
-do.modules=1
+do.modules=0
 do.systemless=1
 do.cleanup=1
 do.cleanuponabort=0
